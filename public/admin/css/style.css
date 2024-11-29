@@ -1,0 +1,320 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+.font_roboto, .content_yield { font-family: 'Roboto', sans-serif; }
+
+/* Reset */
+body { font-family: 'Raleway', sans-serif; font-size: 16px; line-height: 1.24; color: #3d3d3d; }
+a { color: #3d3d3d; text-decoration: none; }
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th { vertical-align: middle; }
+
+/* Style */
+#admin_layout { display: flex; }
+
+/* Side bar */
+/* Sidebar tổng thể */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    background-color: #2d0acc;
+    background-image: linear-gradient(180deg, #137421 10%, #072634 100%);
+    background-size: cover;
+    width: 21rem;
+    min-height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Phần dashboard */
+.sidebar .dash_board {
+    text-align: center;
+    padding: 20px 0; /* Giảm padding để thu gọn khoảng cách */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px; /* Giảm khoảng cách với nội dung phía dưới */
+}
+
+.sidebar .dash_board .dash_board_ava img {
+    max-width: 36%;
+    margin-bottom: 10px; /* Giảm khoảng cách giữa ảnh và tên */
+    border-radius: 100%;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+}
+
+.sidebar .dash_board .dash_board_link {
+    font-weight: bold;
+    font-size: 18px; /* Giảm kích thước font */
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+/* Danh sách mục */
+.sidebar .list_item {
+    position: relative;
+    margin-bottom: 15px; /* Giảm khoảng cách giữa các mục */
+}
+
+.sidebar .list_item .item_link {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 2rem; /* Giảm padding để nội dung gần nhau hơn */
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px; /* Giảm kích thước chữ */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Trạng thái active */
+.sidebar .list_item .item_link.active {
+    color: #ffcc00;
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+    border-left: 4px solid #ffcc00;
+    padding-left: calc(2rem - 4px); /* Điều chỉnh khoảng cách padding khi có viền trái */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+    .sidebar .list_item .item_link {
+        padding: 8px 1.5rem; /* Giảm padding trên màn hình nhỏ */
+    }
+}
+
+
+/* Content */
+.content { flex: 1 0 auto; background-color: #f8f9fc; }
+.topbar { margin-bottom: 1.5rem; background-color: #fff; box-shadow: 0 .15rem 1.75rem 0 rgba(58, 59, 69, .15); display: flex; align-items: center; justify-content: space-between; padding: 15px 30px; position: relative; }
+.topbar .search_form { width: 30rem; }
+.topbar .search_form .input-group { position: relative; display: flex; width: 100%; }
+.logout_button { display: none; position: absolute; max-width: 120px; width: 100%; background: #fff; padding: 5px 15px; border: 1px solid #858796; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); top: 0; right: 0; margin-top: 50px; margin-right: 30px; }
+.admin_profile a { text-decoration: none; }
+
+/* Content page */
+.content_yield .page_title {
+    margin: 35px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-bottom: 1px solid #4bc984;
+    padding: 0 0 10px 15px;
+}
+.content_yield .add_new_button { margin-bottom: 20px; }
+.content_yield .thead_green { background: #4bc984; color: #fff; }
+.content_yield table.table_xk tbody tr:nth-of-type(2n+1) { background-color: rgba(0, 0, 0, .05); }
+.content_yield table > tbody td a { margin-right: 5px; }
+.content_yield table > tbody td a:last-child { margin-right: 0; }
+.content_yield table > tbody td a .info { color: #36b9cc; }
+.content_yield table > tbody td a .edit { color: #4e73df; }
+.content_yield table > tbody td a .delete { color: #e74a3b; }
+
+/* Login form */
+/* Nền trang login */
+#login_page {
+    background-color: #4bc984;
+    background-image: linear-gradient(180deg, #4bc984 10%, #3a9e68 100%);
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container chính */
+#login_page .login_inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    max-width: 840px;
+    margin: 0 auto;
+    background: #ffffff;
+    margin-top: 80px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+    overflow: hidden;
+}
+
+/* Tiêu đề form */
+#login_page .login_form h3 {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Input */
+#login_page .login_form .form_custom {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#login_page .login_form .form_custom:focus {
+    border-color: #3a9e68;
+    box-shadow: 0 0 5px rgba(58, 158, 104, 0.5);
+}
+
+/* Nút submit */
+#login_page .login_form .submit_button {
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background: #4bc984;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#login_page .login_form .submit_button:hover {
+    background: #3a9e68;
+    transform: translateY(-2px);
+}
+
+#login_page .login_form .submit_button:active {
+    transform: translateY(0);
+}
+
+/* Gallery */
+#login_page .login_inner .gallery {
+    padding: 15px;
+    text-align: center;
+    background: #f7f8fc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#login_page .login_inner .gallery img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #login_page .login_inner {
+        flex-direction: column;
+        margin-top: 40px;
+    }
+
+    #login_page .login_inner .gallery {
+        padding: 10px;
+    }
+}
+
+
+/*background green*/
+.bg-color-green { background-color: #4bc984; color: white; font-weight: bold; }
+.bg-color-green:hover { background-color: #4bc984; color: white; font-weight: bold; }
+
+/* Admin Dashboard */
+h2.title {
+    margin-bottom: 25px; /* Giảm khoảng cách giữa tiêu đề và nội dung */
+    padding-left: 15px;
+    font-size: 1.5em;
+    color: #4e73df;
+    font-weight: bold;
+    border-left: 5px solid #4e73df; /* Thêm đường viền bên trái */
+}
+
+/* Tổng quan */
+.total {
+    display: flex;
+    align-items: center;
+    padding: 20px; /* Tăng padding để nội dung thoáng hơn */
+    border-left: 5px solid #dddfeb;
+    border-radius: 10px; /* Bo góc cho phần khung */
+    transition: 0.3s;
+    background-color: #fff;
+    margin-bottom: 20px; /* Giảm khoảng cách giữa các khung */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Thêm bóng mờ nhẹ */
+}
+
+.total:hover {
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Tăng bóng mờ khi hover */
+    margin-top: -5px; /* Hiệu ứng nổi nhẹ */
+    background-color: #4e73df; /* Màu nền mặc định khi hover */
+    transform: scale(1.02); /* Hiệu ứng phóng to nhẹ */
+}
+
+.total .icon {
+    flex-grow: 0.3; /* Giảm kích thước của phần icon */
+    text-align: center;
+}
+
+.total .info {
+    flex-grow: 1; /* Đảm bảo phần text chiếm không gian hợp lý */
+}
+
+.total .info h6 {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    font-weight: bold;
+    color: #000000; /* Màu chữ mặc định */
+    margin-bottom: 5px;
+}
+
+.total .info p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+}
+
+.total i {
+    font-size: 2.5em;
+    color: #dddfeb; /* Màu icon mặc định */
+    transition: 0.3s;
+}
+
+.total:hover i {
+    color: #fff; /* Màu icon khi hover */
+}
+
+/* Các khung riêng biệt */
+.total.product_total {
+    border-color: #4e73df;
+}
+
+.total.product_total:hover {
+    background-color: #4e73df;
+}
+
+.total.customer_total {
+    border-color: #36b9cc;
+}
+
+.total.customer_total:hover {
+    background-color: #36b9cc;
+}
+
+.total.revenue_total {
+    border-color: #1cc88a;
+}
+
+.total.revenue_total:hover {
+    background-color: #1cc88a;
+}
+
+
+/* Role */
+.role_group { padding: 30px; background: #fff; border: 1px solid #ccc; border-radius: 3px; max-width: 870px; overflow: hidden; }
+.role_group .col-2 { float: left; width: 25%; margin-bottom: 20px; }
