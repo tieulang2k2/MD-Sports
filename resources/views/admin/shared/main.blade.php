@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
 	<!-- Responsive Css -->
 	<link rel="stylesheet" href="{{asset('admin/css/responsive.css')}}">
-	<link rel="shortcut icon" href="{{asset('front_assets/images/logomd.png')}}" type="image/x-icon">
+	<link rel="shortcut icon" href="{{asset('front_assets/images/logo_md.png')}}" type="image/x-icon">
 </head>
 <body>
 	<!-- Page -->

@@ -15,6 +15,8 @@
 	<link rel="stylesheet" href="{{asset('admin/css/style.css')}}">
 	<!-- Responsive Css -->
 	<link rel="stylesheet" href="{{asset('admin/css/responsive.css')}}">
+	<!-- AutoNumeric CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/autonumeric@4.5.0/dist/autoNumeric.min.css">
 </head>
 <body>
 	<!-- // -->
@@ -26,5 +28,8 @@
 	<script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
 	<!-- Custom Js -->
 	<script type="text/javascript" src="{{asset('js/custom.js')}}"></script>
+	<!-- AutoNumeric JS -->
+<script src="https://cdn.jsdelivr.net/npm/autonumeric@4.5.0/dist/autoNumeric.min.js"></script>
+
 </body>
 </html>

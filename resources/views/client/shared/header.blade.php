@@ -103,7 +103,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="{{ url('/home') }}"><img width="214px"
-                        src="{{asset('front_assets/images/logomd.PNG')}}" class="logo" alt=""></a>
+                        src="{{asset('front_assets/images/logomd.png')}}" class="logo" alt=""></a>
             </div>
             <!-- End Header Navigation -->
             <!-- Collect the nav links, forms, and other content for toggling -->

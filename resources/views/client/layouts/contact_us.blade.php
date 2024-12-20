@@ -8,7 +8,7 @@
                 <div class="col-lg-12">
                     <h2>Liên hệ với chúng tôi</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item"><a href="/home">Trang chủ</a></li>
                         <li class="breadcrumb-item active"> Liên hệ </li>
                     </ul>
                 </div>

@@ -87,7 +87,7 @@
 
 					<div class="form-group text-left">
 						<label class="form-check-label">
-							<input type="checkbox" required="required" checked="checked">
+							<input type="checkbox" required="required">
 							<a href="#">Tôi đồng ý với các điều khoản</a>
 						</label>
 					</div>

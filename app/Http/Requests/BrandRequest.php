@@ -41,19 +41,20 @@ class BrandRequest extends FormRequest
         } 
     }
     public function messages()
-    {
-        return [
-            'name.required' => 'Please enter Name.',
-            'name.max' => 'Maximum Name length is 100 characters.',
-            'name.unique' => 'Name already exists try another name.',
-            'address.required' => 'Please enter Address.',
-            'address.max' => 'Maximum Address length is 100 characters.',
-            'address.min' => 'Minimum Address length is 10 characters.',
-            'phone_no.required' => 'Please enter Phone.',
-            'phone_no.regex' =>'Phone Number Invalid.',
-            'phone_no.size' => 'Phone number must be 10 digits',             
-            'logo.required' => 'Please choose Logo.',    
-            'logo.mimes' => 'Image must be a photo (jpeg, png, jpg).', 
-        ];
-    }
+{
+    return [
+        'name.required' => 'Vui lòng nhập tên.',
+        'name.max' => 'Độ dài tối đa của tên là 100 ký tự.',
+        'name.unique' => 'Tên đã tồn tại, vui lòng thử tên khác.',
+        'address.required' => 'Vui lòng nhập địa chỉ.',
+        'address.max' => 'Độ dài tối đa của địa chỉ là 100 ký tự.',
+        'address.min' => 'Độ dài tối thiểu của địa chỉ là 10 ký tự.',
+        'phone_no.required' => 'Vui lòng nhập số điện thoại.',
+        'phone_no.regex' => 'Số điện thoại không hợp lệ.',
+        'phone_no.size' => 'Số điện thoại phải có 10 chữ số.',
+        'logo.required' => 'Vui lòng chọn logo.',
+        'logo.mimes' => 'Hình ảnh phải là một bức ảnh (jpeg, png, jpg).',
+    ];
+}
+
 }

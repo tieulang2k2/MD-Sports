@@ -317,7 +317,7 @@ class CartController extends Controller
             $result = $this->orderRepository->update($id, $order->toArray());
             $result->save();
             
-            return redirect('/cart-page')->with('message' ,'Payment by vnpay successful!');
+            return redirect('/cart-page')->with('message' ,'Thanh toán thành công');
         }else{
             return redirect('/cart-page');
         }

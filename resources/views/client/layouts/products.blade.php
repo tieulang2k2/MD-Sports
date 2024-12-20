@@ -75,7 +75,6 @@
                                     </div>
                                 </div>
                                 <!--  -->
-                                <!--  -->
                             </div>
                         </div>
                         <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
@@ -102,11 +101,11 @@
                                                             <h4>{{Illuminate\Support\Str::limit($item->name, 28)}}</h4>
                                                             @if($item->promotion_price != null)
                                                             <div>
-                                                                <h5 style="float: left;padding-right: 10px;">{{$item->promotion_price}}₫ </h5>
-                                                                <h5 class="text-secondary"><strike>₫{{$item->price}}</strike></h5>
+                                                                <h5 style="float: left;padding-right: 10px;">{{ number_format($item->promotion_price, 0, ',', '.') }}₫</h5>
+                                                                <h5 class="text-secondary"><strike>{{ number_format($item->price, 0, ',', '.') }}₫</strike></h5>
                                                             </div>
                                                             @else
-                                                            <h5>{{$item->price}}₫</h5>
+                                                            <h5>{{ number_format($item->price, 0, ',', '.') }}₫</h5>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -122,4 +121,4 @@
                 </div>
             </div>
             <!-- End Shop Page -->
-            @endsection
+@endsection

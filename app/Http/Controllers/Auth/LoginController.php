@@ -51,7 +51,7 @@ class LoginController extends Controller
         {
             return redirect('/home');
         }else{
-            return back()->with('error','your username and password are wrong.');
+            return back()->with('error','Tên người dùng và mật khẩu của bạn không đúng.');
         }
     }
     public function webLogout()

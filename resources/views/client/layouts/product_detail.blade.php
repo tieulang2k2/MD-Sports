@@ -47,16 +47,18 @@
                 <div class="single-product-details">
                     <h2>{{$product->name}}</h2>
                     @if($product->promotion_price != null)
-                    <h4> <strike class="text-secondary">₫{{$product->price}}</strike> ₫{{$product->promotion_price}}</h4>
+                        <h4> 
+                            <strike class="text-secondary">{{ number_format($product->price) }}₫</strike> 
+                            {{ number_format($product->promotion_price) }}₫
+                        </h4>
                     @else
-                    <h4>{{$product->price}}</h4>
+                        <h4>{{ number_format($product->price) }}₫</h4>
                     @endif
 
                     <div class="row ml-0">
                         <a class="btn-sm btn-group btn-group-sm btn-info" data-toggle="tooltip" data-placement="top" title="Categorry Name" href="{{url('product-all?category_id='.$category->id)}}">{{$category->name}}</a>
 
-                        <a class="btn-sm btn-group btn-group-sm btn-success ml-1
-                        " data-toggle="tooltip" data-placement="top" title="Brand Name" href="{{url('product-all?brand_id='.$brand->id)}}">{{$brand->name}}</a>
+                        <a class="btn-sm btn-group btn-group-sm btn-success ml-1" data-toggle="tooltip" data-placement="top" title="Brand Name" href="{{url('product-all?brand_id='.$brand->id)}}">{{$brand->name}}</a>
                     </div>
 
                     <h4>{{trans('message.Short Description')}}:</h4>

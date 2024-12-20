@@ -34,17 +34,18 @@ class CustomerRequest extends FormRequest
     public function messages()
     {
         return [
-            'full_name.required' => 'Please enter Name.',
-            'full_name.max' => 'Maximum Name length is 100 characters.',
-            'address.required' => 'Please enter Address.',
-            'address.max' => 'Maximum Address length is 100 characters.',
-            'address.min' => 'Minimum Address length is 10 characters.',
-            'phone_no.required' => 'Please enter Phone.',
-            'phone_no.regex' =>'Phone Number Invalid.',
-            'phone_no.size' => 'Phone number must be 10 digits',
-             'email.required' => 'Please enter Email!',
-            'email.max' => 'Email must not exceed 150 characters!',   
-             'slug.required' => 'Please enters slug'
+            'full_name.required' => 'Vui lòng nhập Tên.',
+            'full_name.max' => 'Tên không được vượt quá 100 ký tự.',
+            'address.required' => 'Vui lòng nhập Địa chỉ.',
+            'address.max' => 'Địa chỉ không được vượt quá 100 ký tự.',
+            'address.min' => 'Địa chỉ phải có ít nhất 10 ký tự.',
+            'phone_no.required' => 'Vui lòng nhập Số điện thoại.',
+            'phone_no.regex' => 'Số điện thoại không hợp lệ.',
+            'phone_no.size' => 'Số điện thoại phải có 10 chữ số.',
+            'email.required' => 'Vui lòng nhập Email!',
+            'email.max' => 'Email không được vượt quá 150 ký tự!',
+            'slug.required' => 'Vui lòng nhập slug.',
         ];
+        
     }
 }

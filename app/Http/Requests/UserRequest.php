@@ -43,16 +43,17 @@ class UserRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Please enter Name!',
-            'name.max' => 'Name must not exceed 50 characters!',
-            'name.unique' => 'Name already exists try another name.',
-            'email.required' => 'Please enter Email!',
-            'email.max' => 'Email must not exceed 150 characters!',
-            'email.email' =>'Email invalid!',
-            'email.unique' => 'Email already exists try another email.',
-            'password.required' => 'Please enter Password!',
-            'password.min' => 'Password must be at least 6 characters!',
-            'password.confirmed' => 'Password confirmation does not match.',
+            'name.required' => 'Vui lòng nhập Tên!',
+            'name.max' => 'Tên không được vượt quá 50 ký tự!',
+            'name.unique' => 'Tên đã tồn tại, vui lòng thử tên khác.',
+            'email.required' => 'Vui lòng nhập Email!',
+            'email.max' => 'Email không được vượt quá 150 ký tự!',
+            'email.email' => 'Email không hợp lệ!',
+            'email.unique' => 'Email đã tồn tại, vui lòng thử email khác.',
+            'password.required' => 'Vui lòng nhập Mật khẩu!',
+            'password.min' => 'Mật khẩu phải có ít nhất 6 ký tự!',
+            'password.confirmed' => 'Xác nhận mật khẩu không khớp.',
         ];
+        
     }
 }

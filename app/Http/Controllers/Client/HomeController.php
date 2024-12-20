@@ -46,6 +46,18 @@ class HomeController extends Controller
     {
         return view('client.layouts.about_us');
     }
+    public function size_guide()
+    {
+        return view('client.layouts.size_guide');
+    }
+    public function term()
+    {
+        return view('client.layouts.term');
+    }
+    public function policy()
+    {
+        return view('client.layouts.policy');
+    }
     // send gmail
     public function contact()
     {

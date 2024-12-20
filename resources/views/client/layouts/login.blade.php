@@ -8,7 +8,7 @@
             <label for="email" class="font-weight-bold">Email</label> <!-- Tiêu đề trên ô nhập -->
             <input 
                 id="email" 
-                placeholder="Please enter your email" 
+                placeholder="Nhập Email của bạn" 
                 type="email" 
                 class="form_custom form-control @error('email') is-invalid @enderror" 
                 name="email" 
@@ -24,10 +24,10 @@
             @enderror
         </div>
         <div class="form-group text-left">
-            <label for="password" class="font-weight-bold">Password</label> <!-- Tiêu đề trên ô nhập -->
+            <label for="password" class="font-weight-bold">Mật khẩu</label> <!-- Tiêu đề trên ô nhập -->
             <input 
                 id="password" 
-                placeholder="Please enter your password" 
+                placeholder="Nhập mật khẩu của bạn" 
                 type="password" 
                 class="form_custom form-control @error('password') is-invalid @enderror" 
                 name="password" 

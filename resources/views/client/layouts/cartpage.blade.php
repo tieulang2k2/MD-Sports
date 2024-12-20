@@ -1,4 +1,5 @@
 @extends('client.shared.master')
+
 @section('content')
 @if(Session::has('message'))
     <div id="div-alert" class="float-right mt-2 alert alert-success alert-dismissible show" role="alert"
@@ -22,13 +23,14 @@
         element.classList.add("fade");
     }, 2000)
 </script>
- <div class="cart-box-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="table-main table-responsive">
-                        <div class="wuc-boder">
-                        	<table class="table">
+
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <div class="wuc-boder">
+                        <table class="table cart-table">
                             <thead>
                                 <tr>
                                     <th>{{trans('message.Images')}}</th>
@@ -43,29 +45,33 @@
                                 <?php $total = 0 ?>
                                 @if(session('cart'))
                                     @foreach(session('cart') as $key => $item)
+                                        <?php 
+                                            // Định dạng giá sản phẩm và tổng tiền
+                                            $formatted_price = number_format($item['price'], 0, ',', '.');
+                                            $formatted_total = number_format($item['price'] * $item['quantity'], 0, ',', '.');
+                                        ?>
                                         <tr>
-                                            <td class="thumbnail-img">
+                                            <td class="cart-img">
                                                 <a href="#">
                                                     <img class="img-fluid" src="{{asset('images/'.$item['image'])}}" alt="" />
                                                 </a>
                                             </td>
-                                            <td class="name-pr">
+                                            <td class="cart-name">
                                                 <a href="#">{{$item['name']}}</a>
                                             </td>
-                                            <td class="price-pr">
-                                                <p>₫{{$item['price']}}</p>
+                                            <td class="cart-price">
+                                                <p>₫{{$formatted_price}}</p>
                                             </td>
-                                            <td class="quantity-box">
+                                            <td class="cart-quantity">
                                                 <input type="number" size="4" name="quantity[]" value="{{$item['quantity']}}"
-                                                       min="0" step="1" class="change_quantity c-input-text qty text"
-                                                       id="product_quantity{{$item['id']}}" data-columns="{{$item['id']}}"
-                                                        style="width: 80px;">
+                                                       min="0" max="50" step="1" class="change_quantity c-input-text qty text"
+                                                       id="product_quantity{{$item['id']}}" data-columns="{{$item['id']}}">
                                             </td>
-                                            <td class="total-pr">
-                                                <p>₫{{$item['price'] * $item['quantity']}}</p>
+                                            <td class="cart-total">
+                                                <p>₫{{$formatted_total}}</p>
                                             </td>
-                                            <td class="remove-pr">
-                                                <button value="{{$item['id']}}" class="btn btn-danger btn-sm remove-from-cart" >
+                                            <td class="cart-remove">
+                                                <button value="{{$item['id']}}" class="btn btn-danger btn-sm remove-from-cart">
                                                     X
                                                 </button>
                                             </td>
@@ -80,33 +86,33 @@
                                 @endif
                             </tbody>
                         </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="coupon-box">
-                        <div class="input-group input-group-sm">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-sm-6">
-                    <div class="update-box">
-                        <a href="{{ url('/checkout') }}"><input value="{{trans('message.Check Out')}}" type="submit"></a>
                     </div>
                 </div>
             </div>
         </div>
- </div>
+
+        <div class="row my-5">
+            <div class="col-lg-6 col-sm-6">
+                <div class="coupon-box">
+                    <div class="input-group input-group-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="update-box">
+                    <a href="{{ url('/checkout') }}"><input value="{{trans('message.Check Out')}}" type="submit"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="modal-title" id="exampleModalLabel">{{trans('message.Are you sure you want to remove product form cart')}}?</h4>
-                </button>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn" data-dismiss="modal">{{trans('message.No')}}</button>
@@ -116,12 +122,14 @@
     </div>
 </div>
 @endsection
+
 @section('script_cart')
 <script>
     $('.remove-from-cart').click(function(){
         $('#exampleModal').modal('show'); 
         $("#bodycontent").css({"padding-right": "0px" });
     });
+
     $(".remove-from-cart").click(function(e) {
         var id = $(this).val();
         $(".delete").click(function(){
@@ -139,9 +147,10 @@
     $(".change_quantity").change(function(e){
         var id = this.dataset.columns;
         var quantity = parseInt($(this).val());
-        if (quantity < 0 || quantity > 50 ) {
+        if (quantity < 1 || quantity > 50) {
             alert('Quantity must be greater than 0 and less than 50');
-        }else{
+            $(this).val(1); // reset to 1 if invalid quantity
+        } else {
             $.ajax({
                 url: '{{ url('update-cart') }}',
                 method: "PATCH",

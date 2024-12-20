@@ -8,7 +8,7 @@
         <ul class="slides-container">
             @foreach($slides as $key => $slide)
                 <li class="text-left" style="height: auto;">
-                    <img src="{{asset('images/' . $slide->image)}}" alt="">
+                    <img src="{{asset('images/' . $slide->image)}}" alt="Slide Image">
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
@@ -60,25 +60,22 @@
                                                         class="fas fa-eye"></i></a></li>
                                         </ul>
                                         <a class="cart"
-                                            href="{{ url('/add-to-cart?product_id=' . $topHot->id . '&quantity=1') }}"
-                                            }}>{{trans('message.Add to Cart')}}</a>
+                                            href="{{ url('/add-to-cart?product_id=' . $topHot->id . '&quantity=1') }}">{{$topHot->promotion_price ? trans('message.Add to Cart') : 'Out of Stock'}}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="why-text">
                                 <h4>
-                                    <a
-                                        href="{{url('/product-detail?id=' . $topHot->id)}}">{{ Illuminate\Support\Str::limit($topHot->name, 25) }}</a>
+                                    <a href="{{url('/product-detail?id=' . $topHot->id)}}">{{ Illuminate\Support\Str::limit($topHot->name, 25) }}</a>
                                 </h4>
                                 @if($topHot->promotion_price != null)
                                     <div>
-                                        <h5 style="float: left;padding-right: 10px;">{{$topHot->promotion_price}} ₫</h5>
-                                        <h5 class="text-secondary"> <strike>{{$topHot->price}}₫</strike></h5>
+                                        <h5 style="float: left;padding-right: 0px;">{{ number_format($topHot->promotion_price) }} ₫</h5>
+                                        <h5 class="text-secondary"><strike>{{ number_format($topHot->price) }}₫</strike></h5>
                                     </div>
                                 @else
-                                    <h5>{{$topHot->price}}₫</h5>
+                                    <h5>{{ number_format($topHot->price) }}₫</h5>
                                 @endif
-
                             </div>
                         </div>
                     </div>
@@ -98,23 +95,21 @@
                                                         class="fas fa-eye"></i></a></li>
                                         </ul>
                                         <a class="cart"
-                                            href="{{ url('/add-to-cart?product_id=' . $topNew->id . '&quantity=1') }}"
-                                            }}>{{trans('message.Add to Cart')}}</a>
+                                            href="{{ url('/add-to-cart?product_id=' . $topNew->id . '&quantity=1') }}">{{$topNew->promotion_price ? trans('message.Add to Cart') : 'Out of Stock'}}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="why-text">
                                 <h4>
-                                    <a
-                                        href="{{url('/product-detail?id=' . $topNew->id)}}">{{ Illuminate\Support\Str::limit($topNew->name, 25) }}</a>
+                                    <a href="{{url('/product-detail?id=' . $topNew->id)}}">{{ Illuminate\Support\Str::limit($topNew->name, 25) }}</a>
                                 </h4>
                                 @if($topNew->promotion_price != null)
                                     <div>
-                                        <h5 style="float: left;padding-right: 10px;">{{$topNew->promotion_price}}₫ </h5>
-                                        <h5 class="text-secondary"> <strike>{{$topHot->price}}₫</strike></h5>
+                                        <h5 style="float: left;padding-right: 0px;">{{ number_format($topNew->promotion_price) }}₫ </h5>
+                                        <h5 class="text-secondary"> <strike>{{ number_format($topNew->price) }}₫</strike></h5>
                                     </div>
                                 @else
-                                    <h5>{{$topNew->price}}₫</h5>
+                                    <h5>{{ number_format($topNew->price) }}₫</h5>
                                 @endif
                             </div>
                         </div>
@@ -135,23 +130,21 @@
                                                         class="fas fa-eye"></i></a></li>
                                         </ul>
                                         <a class="cart"
-                                            href="{{ url('/add-to-cart?product_id=' . $topSale->id . '&quantity=1') }}"
-                                            }}>{{trans('message.Add to Cart')}}</a>
+                                            href="{{ url('/add-to-cart?product_id=' . $topSale->id . '&quantity=1') }}">{{$topSale->promotion_price ? trans('message.Add to Cart') : 'Out of Stock'}}</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="why-text">
                                 <h4>
-                                    <a
-                                        href="{{url('/product-detail?id=' . $topSale->id)}}">{{ Illuminate\Support\Str::limit($topSale->name, 25) }}</a>
+                                    <a href="{{url('/product-detail?id=' . $topSale->id)}}">{{ Illuminate\Support\Str::limit($topSale->name, 25) }}</a>
                                 </h4>
                                 @if($topSale->promotion_price != null)
                                     <div>
-                                        <h5 style="float: left;padding-right: 10px;">{{$topSale->promotion_price}} ₫</h5>
-                                        <h5 class="text-secondary"> <strike>{{$topSale->price}}₫</strike></h5>
+                                        <h5 style="float: left;padding-right: 0px;">{{ number_format($topSale->promotion_price) }} ₫</h5>
+                                        <h5 class="text-secondary"> <strike>{{ number_format($topSale->price) }}₫</strike></h5>
                                     </div>
                                 @else
-                                    <h5>₫{{$topSale->price}}</h5>
+                                    <h5>{{ number_format($topSale->price) }}₫</h5>
                                 @endif
                             </div>
                         </div>
@@ -161,8 +154,10 @@
         </div>
     </div>
     <!-- End Products  -->
+
     <!-- Start Instagram Feed  -->
     @include('client.shared.slider_advertisement')
     <!-- End Instagram Feed  -->
+
 </body>
 @endsection

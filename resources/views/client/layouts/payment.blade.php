@@ -8,18 +8,14 @@
                 <div class="coupon-box">
                     <div class="d-flex col-lg-12 col-md-12 col-md-12">
                         <h4 class="font-weight-bold col-lg-4 col-md-4 col-sm-4">{{trans('message.Full Name')}}:</h4>
-{{--                        <div class="ml-auto ">{{$customer->full_name}}</div>--}}
                         @if($customer->full_name)
                             <input class="ml-auto text-right form-control h-50" disabled name="full_name" value="{{$customer->full_name}}">
-
                         @else
                             <input class="ml-auto text-right form-control h-50" required name="full_name" value="{{$customer->full_name}}">
-
                         @endif
                     </div>
                     <div class="d-flex col-lg-12 col-md-12 col-md-12">
                         <h4 class="font-weight-bold col-lg-4 col-md-4 col-sm-4">{{trans('message.Address')}}:</h4>
-{{--                        <div class="ml-auto "> {{$customer->address}} </div>--}}
                         @if($customer->address)
                             <input class="ml-auto text-right form-control h-50" disabled name="address" value="{{$customer->address}}">
                         @else
@@ -28,7 +24,6 @@
                     </div>
                     <div class="d-flex col-lg-12 col-md-12 col-md-12">
                         <h4 class="font-weight-bold col-lg-4 col-md-4 col-sm-4">{{trans('message.Phone No')}}:</h4>
-{{--                        <div class="ml-auto "> {{$customer->phone_no}} </div>--}}
                         @if($customer->phone_no)
                             <input class="ml-auto text-right form-control h-50" disabled name="phone_no" value="{{$customer->phone_no}}">
                         @else
@@ -37,7 +32,6 @@
                     </div>
                     <div class="d-flex col-lg-12 col-md-12 col-md-12">
                         <h4 class="font-weight-bold col-lg-4 col-md-4 col-sm-4">{{trans('message.Email')}}:</h4>
-{{--                        <div class="ml-auto "> {{$customer->email}} </div>--}}
                         @if($customer->email)
                             <input class="ml-auto text-right form-control h-50" disabled name="email" value="{{$customer->email}}">
                         @else
@@ -63,6 +57,11 @@
                         <?php $totalAmount = 0 ?>
                         @if(session('cart'))
                             @foreach(session('cart') as $key => $item)
+                                <?php 
+                                    // Định dạng giá sản phẩm và tổng tiền
+                                    $formatted_price = number_format($item['price'], 0, ',', '.');
+                                    $formatted_total = number_format($item['price'] * $item['quantity'], 0, ',', '.');
+                                ?>
                                 <input type="hidden" name="product_id[]" value="{{$item['id']}}">
                                 <input type="hidden" name="quantity[]" value="{{$item['quantity']}}">
                                 <input type="hidden" name="price[]" value="{{$item['price']}}">
@@ -78,28 +77,28 @@
                                         <a href="#">{{$item['name']}}</a>
                                     </td>
                                     <td class="price-pr">
-                                        <p>₫{{$item['price']}}</p>
+                                        <p>₫{{$formatted_price}}</p>
                                     </td>
                                     <td class="quantity-box">
                                         <p>{{$item['quantity']}}</p>
                                     </td>
                                     <td class="total-pr">
-                                        <p>₫{{$item['price'] * $item['quantity']}}</p>
+                                        <p>₫{{$formatted_total}}</p>
                                     </td>
                                 </tr>
                             @endforeach
-                            @else
-                                <tr>
-                                    <td colspan="6">
-                                        <p class="text-danger text-center">{{trans('message.Cart is empty')}}</p>
-                                    </td>
-                                </tr>
-                            @endif
+                        @else
+                            <tr>
+                                <td colspan="6">
+                                    <p class="text-danger text-center">{{trans('message.Cart is empty')}}</p>
+                                </td>
+                            </tr>
+                        @endif
                         </tbody>
                         <tfoot>
                             <tr>
                                 <td colspan="4" class="text-right font-weight-bold">{{trans('message.Total amount')}}</td>
-                                <td colspan="1">₫{{$totalAmount ?? 0}}</td>
+                                <td colspan="1">₫{{number_format($totalAmount, 0, ',', '.')}}</td>
                             </tr>
                         </tfoot>
                     </table>
@@ -110,17 +109,16 @@
                     <h3 class="wuc-Customers font-weight-bold text-center text-info">{{trans('message.PAYMENT METHOD')}}</h3>
                     <input type="radio" name="payment_method" id="cod" value="1" checked/>
                     <label for="cod">{{trans('message.Cash')}}</label> <br>
-                    <input type="radio" name="payment_method" id="vnpay" value="2" checked/>
-                    <label for="cod">Momo</label> <br>
-                    <input type="radio" name="payment_method" id="vnpay" value="3" checked/>
-                    <label for="cod">Thanh toán VNPAY</label> <br>
+                    <input type="radio" name="payment_method" id="momo" value="2" />
+                    <label for="momo">Momo</label> <br>
+                    <input type="radio" name="payment_method" id="vnpay" value="3" />
+                    <label for="vnpay">Thanh toán VNPAY</label> <br>
                 </div>
             </div>
             <div class="col-12 shopping-box">
-                    <button type="submit" class="btn btn-success" style="float: right;">{{trans('message.Pay')}}</button>
-                </div>
+                <button type="submit" class="btn btn-success" style="float: right;">{{trans('message.Pay')}}</button>
+            </div>
         </form>
     </div>
 </div>
-
 @endsection
